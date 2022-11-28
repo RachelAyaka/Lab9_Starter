@@ -5,6 +5,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
   <title>Lab 9</title>
 
   <style>
@@ -69,21 +70,21 @@
     </form>
 
     <section id="error-btns">
-      <button>Console Log</button>
-      <button>Console Error</button>
-      <button>Console Count</button>
-      <button>Console Warn</button>
-      <button>Console Assert</button>
-      <button>Console Clear</button>
-      <button>Console Dir</button>
-      <button>Console dirxml</button>
-      <button>Console Group Start</button>
-      <button>Console Group End</button>
-      <button>Console Table</button>
-      <button>Start Timer</button>
-      <button>End Timer</button>
-      <button>Console Trace</button>
-      <button>Trigger a Global Error</button>
+      <button id="log">Console Log</button>
+      <button id="err">Console Error</button>
+      <button id="count">Console Count</button>
+      <button id="warn">Console Warn</button>
+      <button id="assert">Console Assert</button>
+      <button id="clear">Console Clear</button>
+      <button id="dir">Console Dir</button>
+      <button id="dirxml">Console dirxml</button>
+      <button id="start">Console Group Start</button>
+      <button id="end">Console Group End</button>
+      <button id="table">Console Table</button>
+      <button id="startTimer">Start Timer</button>
+      <button id="endTimer">End Timer</button>
+      <button id="trace">Console Trace</button>
+      <button id="globalErr">Trigger a Global Error</button>
     </section>
   </main>
 
@@ -102,6 +103,100 @@
 
     // Start your code here
     // You may move this JS to another file if you wish
+
+    //console log
+    errorBtns[0].onclick = (event) => {
+      event.preventDefault();
+      console.log("Console Log Demo");
+    }
+    //console error
+    errorBtns[1].onclick = (event) => {
+      event.preventDefault();
+      console.error("Console Error Demo");
+    }
+    //console count
+    errorBtns[2].onclick = (event) => {
+      event.preventDefault();
+      console.count("Count Button");
+    }
+    //console warn
+    errorBtns[3].onclick = (event) => {
+      event.preventDefault();
+      console.warn("Console Warn Button");
+    }
+    //console assert
+    errorBtns[4].onclick = (event) => {
+      let asserNum = 2
+      event.preventDefault();
+      console.assert(asserNum==3, "The number doesn't equal three");
+    }
+    //console clear
+    errorBtns[5].onclick = (event) => {
+      event.preventDefault();
+      console.clear();
+    }
+    //console dir
+    errorBtns[6].onclick = (event) => {
+      event.preventDefault();
+      console.dir(errorBtns[6]);
+    }
+    //console dirxml
+    errorBtns[7].onclick = (event) => {
+      event.preventDefault();
+      console.dirxml(errorBtns[7]);
+    }
+    //console group start
+    errorBtns[8].onclick = (event) => {
+      event.preventDefault();
+      console.group();
+    }
+    //console group end
+    errorBtns[9].onclick = (event) => {
+      event.preventDefault();
+      console.groupEnd();
+    }
+    function Ppl(firstName, lastName) {
+      this.firstName = firstName;
+      this.lastName = lastName;
+    }
+    //console table
+    errorBtns[10].onclick = (event) => {
+      const rachel = new Ppl("Rachel", "Lin");
+      const jinny = new Ppl("Jinny", "Shin");
+      const an = new Ppl("An", "Vu");
+      const val = new Ppl("Valeria", "Sanchez");
+      event.preventDefault();
+      console.table([rachel, jinny, an, val]);
+    }
+    //start timer
+    errorBtns[11].onclick = (event) => {
+      event.preventDefault();
+      console.time("Timer Button");
+    }
+    //end timer
+    errorBtns[12].onclick = (event) => {
+      event.preventDefault();
+      console.timeEnd("Timer Button")
+    }
+    //console trace
+    errorBtns[13].onclick = (event) => {
+      function deep() {
+        function deeper() {
+          function deepest() {
+            event.preventDefault();
+            console.trace();
+          }
+          deepest();
+        }
+        deeper();
+      }
+      deep();
+    }
+    //trigger a global error
+    errorBtns[14].onclick = (event) => {
+      event.preventDefault();
+      console.log("");
+    }
   </script>
 </body>
 
