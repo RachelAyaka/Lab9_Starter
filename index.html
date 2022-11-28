@@ -112,7 +112,13 @@
     //console error
     errorBtns[1].onclick = (event) => {
       event.preventDefault();
-      console.error("Console Error Demo");
+      try {
+        console.error("Console Error Demo");
+      } catch (err) {
+        alert(err);
+      } finally {
+        alert('finally');
+      }
     }
     //console count
     errorBtns[2].onclick = (event) => {
@@ -127,7 +133,6 @@
     //console assert
     errorBtns[4].onclick = (event) => {
       let asserNum = 2
-      event.preventDefault();
       console.assert(asserNum==3, "The number doesn't equal three");
     }
     //console clear
@@ -194,8 +199,9 @@
     }
     //trigger a global error
     errorBtns[14].onclick = (event) => {
-      event.preventDefault();
-      console.log("");
+      if (true) {
+        throw new ReferenceError("boom is not defined");
+      }
     }
   </script>
 </body>
